@@ -1,11 +1,20 @@
 import { Request, Response } from 'express';
 import { Group } from '../models/group.entity';
 import groupService from '../services/group.service';
+import userService from '../services/user.service';
 class GroupController {
   async create(req: Request, res: Response) {
-    const newGroup = await groupService.createGroup(req.body.name)
+    const { name, description } = req.body;
+    const newGroup = await groupService.createGroup(name, description);
     res.json(newGroup);
   };
+
+  async addUser(req: Request, res: Response) {
+    const group_id = parseInt(req.params.id);
+    const { user_id } = req.body;
+    const newGroup = await groupService.addUser(user_id, group_id);
+    res.json(newGroup);
+  }
 
   async get(req: Request, res: Response) {
     const users = await groupService.getAllGroups()

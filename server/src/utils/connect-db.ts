@@ -12,7 +12,7 @@ export const dataSource = new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  synchronize: true,  
+  synchronize: true,
   entities: [User, Group]
 })
 

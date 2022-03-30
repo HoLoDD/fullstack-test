@@ -1,11 +1,11 @@
-import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, ObjectID, ObjectIdColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, ObjectID, ObjectIdColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from './user.entity';
 
 @Entity('Group')
 export class Group extends BaseEntity {
   
   @PrimaryGeneratedColumn()
-  id: ObjectID;
+  id: number;
 
   @Column('varchar')
   name: string;
@@ -13,10 +13,11 @@ export class Group extends BaseEntity {
   @Column('varchar')
   description: string
 
-  @ManyToMany(
-    () => User,
+  @OneToMany(
+    () => User, 
+    (user) => user.group,
+    {cascade: true}
   )
-  @JoinTable()
   users: User[];
 
 }

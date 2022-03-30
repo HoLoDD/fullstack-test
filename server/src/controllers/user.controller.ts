@@ -3,7 +3,15 @@ import userService from '../services/user.service';
 class UserController {
   
   async create(req: Request, res: Response) {
-    const newUser = await userService.createUser(req.body.name)
+    const { username } = req.body;
+    const newUser = await userService.createUser(username)
+    res.json(newUser);
+  };
+
+  async setGroup(req: Request, res: Response) {
+    const { group_id } = req.body;
+    const user_id  = parseInt(req.params.id)
+    const newUser = await userService.setGroup(user_id, group_id); 
     res.json(newUser);
   };
 
@@ -13,14 +21,18 @@ class UserController {
   };
 
   async edit(req: Request, res: Response) {
-    const {id, username} = req.body;
+    const { username } = req.body;
+    const id  = parseInt(req.params.id)
     const editedUser = await userService.editUser(id, username);
     res.json(editedUser);
   };
 
   async delete(req: Request, res: Response) {
-    const deletedUser = await userService.deleteUser(req.body.id);
+    const id = parseInt(req.params.id);
+    const deleteResult = await userService.deleteUser(id);
+    res.json(deleteResult);
   };
+
 }
 
 export default new UserController();

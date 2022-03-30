@@ -1,4 +1,5 @@
-import { Entity, ObjectID, Column, BaseEntity, PrimaryColumn, CreateDateColumn, JoinColumn, ManyToMany, JoinTable, ObjectIdColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { group } from 'console';
+import { Entity, Column, BaseEntity, CreateDateColumn, ManyToMany, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { Group } from './group.entity';
 
 
@@ -6,7 +7,7 @@ import { Group } from './group.entity';
 export class User extends BaseEntity {
   
   @PrimaryGeneratedColumn()
-  id: ObjectID;
+  id: number;
 
   @Column('varchar', {unique: true})
   username: string;
@@ -14,8 +15,9 @@ export class User extends BaseEntity {
   @CreateDateColumn()
   createdAt: Date;
 
-  @ManyToMany(
+  @ManyToOne(
     () => Group,
+    (group) => group.users
   )
-  groups: Group[]
+  group: Group
 }
