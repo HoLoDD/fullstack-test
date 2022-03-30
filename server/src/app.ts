@@ -1,17 +1,24 @@
 import dotenv from 'dotenv';
 dotenv.config();
+import cors from 'cors'
 import express, { Application, Request, Response, NextFunction } from 'express';
-import connect from './utils/connect-db';
-
-const app: Application = express();
-
-app.get('/', (req: Request, res: Response) => {
-  return res.send('<h1>Main page</h1>');
-});
+import router from './routes/index'
 
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => {
-  console.log(`App is running at http://localhost:${PORT}`)
-  connect();
-});
+const app: Application = express();
+app.use(cors());
+app.use(express.json());
+app.use('/api', router);
+
+const start = async () => {
+  try {
+    app.listen(PORT, () => {
+      console.log(`App is running at http://localhost:${PORT}`)
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+start();
