@@ -1,17 +1,10 @@
 import Router, { Request, Response } from 'express';
 const router = Router();
+import groupController from '../controllers/group.controller'
 
-router.post('/', (req: Request, res: Response) => {
-  
-});
-router.get('/', (req: Request, res: Response) => {
-  
-});
-router.put('/:id', (req: Request, res: Response) => {
-  
-});
-router.delete('/:id', (req: Request, res: Response) => {
-  
-});
+router.post('/', groupController.create);
+router.get('/', groupController.get);
+router.put('/:id', groupController.edit);
+router.delete('/:id', groupController.delete);
 
 export default router;

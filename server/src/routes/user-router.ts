@@ -1,17 +1,10 @@
 import Router, { Request, Response } from 'express';
+import userController from '../controllers/user.controller';
 const router = Router();
 
-router.post('/', (req: Request, res: Response) => {
-  
-});
-router.get('/', (req: Request, res: Response) => {
-
-});
-router.put('/:id', (req: Request, res: Response) => {
-  
-});
-router.delete('/:id', (req: Request, res: Response) => {
-  
-});
+router.post('/', userController.create);
+router.get('/', userController.get);
+router.get('/:id', userController.edit);
+router.delete('/:id', userController.delete);
 
 export default router;

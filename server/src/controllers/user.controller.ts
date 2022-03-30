@@ -1,19 +1,26 @@
+import { Request, Response } from 'express';
+import userService from '../services/user.service';
 class UserController {
-  async create(req, res) {
+  
+  async create(req: Request, res: Response) {
+    const newUser = await userService.createUser(req.body.name)
+    res.json(newUser);
+  };
 
-  }
+  async get(req: Request, res: Response) {
+    const users = await userService.getAllUsers()
+    res.json(users);
+  };
 
-  async get(req, res) {
+  async edit(req: Request, res: Response) {
+    const {id, username} = req.body;
+    const editedUser = await userService.editUser(id, username);
+    res.json(editedUser);
+  };
 
-  }
-
-  async edit(req, res) {
-
-  }
-
-  async delete(req, res) {
-
-  }
+  async delete(req: Request, res: Response) {
+    const deletedUser = await userService.deleteUser(req.body.id);
+  };
 }
 
-module.exports = new UserController();
+export default new UserController();
