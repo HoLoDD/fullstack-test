@@ -1,0 +1,13 @@
+.item {
+  padding: 10px;
+  text-align: center;
+  align-self: center;
+
+  text-transform: uppercase;
+  color: white;
+  border-right: 1px solid #8E3DF4;
+
+  &:last-child {
+    border: none;
+  }
+}

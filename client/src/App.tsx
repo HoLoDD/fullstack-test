@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 import AppRouter from './components/AppRouter';
+import NavBar from './components/navbar/navbar';
 
 const App: FC = () => {
   return (
-    <div>
-      <AppRouter />
-    </div>
+    <>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <AppRouter />
+      </main>
+    </>
   );
 }
 

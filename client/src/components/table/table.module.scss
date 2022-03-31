@@ -1,0 +1,22 @@
+.heading {
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #8E3DF4;
+
+  display: flex;
+}
+
+.columnName {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  align-self: center;
+
+  text-transform: uppercase;
+  color: white;
+  border-right: 1px solid #8E3DF4;
+
+  &:last-child {
+    border: none;
+  }
+}
