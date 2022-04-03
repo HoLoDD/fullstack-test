@@ -22,13 +22,14 @@ class GroupController {
   };
 
   async edit(req: Request, res: Response) {
-    const {id, name, description} = req.body;
-    const editedGroup = await groupService.editGroup(id, name, description);
+    const group_id = parseInt(req.params.id);
+    const {name, description} = req.body;
+    const editedGroup = await groupService.editGroup(group_id, name, description);
     res.json(editedGroup);
   };
 
   async delete(req: Request, res: Response) {
-    const deletedGroup = await groupService.deleteGroup(req.body.id);
+    const deletedGroup = await groupService.deleteGroup(parseInt(req.params?.id));
   };
 }
 

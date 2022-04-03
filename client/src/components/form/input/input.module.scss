@@ -1,0 +1,11 @@
+.input {
+  color: white;
+  background: none;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: white;
+  &:focus {
+    outline: none;
+    border-color: #8E3DF4;
+  }
+}

@@ -13,7 +13,7 @@ const NavBar = () => {
             return styles.nav_item + " "+(isActive ? styles.active : "");
           }}>
           USERS
-        </NavLink>,
+        </NavLink>
         <div className={styles.nav_line} ></div>
         <NavLink
           to={RouteNames.GROUPS}
@@ -22,7 +22,7 @@ const NavBar = () => {
           }}
         >
           GROUPS
-        </NavLink>,
+        </NavLink>
       </nav>
       <div className={styles.line}></div>
     </>

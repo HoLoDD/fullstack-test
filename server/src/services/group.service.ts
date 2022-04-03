@@ -8,7 +8,7 @@ class GroupService {
       const group = new Group();
       group.name = name;
       group.description = description;
-      const newGroup = dataSource.manager.insert(Group, group)
+      const newGroup = dataSource.manager.save(Group, group)
       return newGroup;
     } catch (error) {
       console.log(error);

@@ -8,7 +8,7 @@ class UserService {
     try {
       const user = new User();
       user.username = username;
-      const newUser = dataSource.manager.insert(User, user)
+      const newUser = dataSource.manager.save(User, user)
       return newUser;
     } catch (error) {
       console.log(error);

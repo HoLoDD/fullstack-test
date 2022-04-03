@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { IGroup } from '../../../models';
 import styles from './group-item.module.scss';
 
 const GroupHeader: FC = () => {

@@ -1,0 +1,32 @@
+.form {
+  letter-spacing: 2px;
+}
+
+.header {
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.select {
+  color: white;
+  background-color: black;
+  width: 164px;
+  padding: 5px 25px;
+}
+
+.btn {
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  margin-top: 40px;
+  padding: 5px 40px;
+  &:hover {
+    border-color: #8E3DF4;
+  }
+}

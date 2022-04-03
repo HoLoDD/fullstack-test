@@ -3,11 +3,27 @@
   text-align: center;
   align-self: center;
 
-  text-transform: uppercase;
   color: white;
   border-right: 1px solid #8E3DF4;
 
   &:last-child {
     border: none;
+  }
+}
+
+.btn {
+  padding: 5px 15px;
+  letter-spacing: 1px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  &:first-child {
+    border-right: 1px solid white;
+  }
+
+  &:hover {
+    color: #8E3DF4;
   }
 }
